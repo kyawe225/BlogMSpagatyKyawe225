@@ -1,0 +1,21 @@
+﻿@model LoginModel
+@{
+    Layout = "";
+}
+<div class="start-0 end-0 bottom-0 top-0 position-absolute shadow rounded">
+    <div class="p-2 h2 text-center">Login</div>
+    <hr class="w-25 text-center" />
+    <form class="p-2" method="post">
+        <div class="mb-2">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" asp-for="Email" role="textbox" />
+        </div>
+        <div class="mb-2">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" asp-for="Password" role="textbox"/>
+        </div>
+        <div class="">
+            <input type="submit" class="btn btn-primary w-100" value="Login" role="button"/>
+        </div>
+    </form>
+</div>

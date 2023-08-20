@@ -1,0 +1,43 @@
+﻿@model ContactCreateViewModel
+
+<div class="h2 text-center mt-2 mb-1"> Contact Us </div>
+<hr class="w-25 mx-auto m-1 mb-3 text-primary" />
+<div class="row m-2">
+    <div class="col-6 my-2">
+        <span class="h3">
+            If You have more question , You can Contact through
+        </span>
+        <p> 09887873837</p>
+        <p> email@gamil.com </p>
+        <p> NO fjdsafpiosjaddfojsafsanfsaofnsaoihvoanfijkasdjfivoajfiodkvjiaskfisdjo</p>
+    </div>
+    <div class="col-6">
+        <partial name="MessageCommon"/>
+        <form class="m-1" asp-controller="Contact" asp-action="Index" method="post">
+            <div class="m-1">
+                <label class="form-label">
+                    Name
+                </label>
+                <input type="text" class="form-control" name="name" id="name" asp-for="Name" />
+            </div>
+            <div class="m-1">
+                <label class="form-label">
+                    Email
+                </label>
+                <input type="email" class="form-control" name="email" id="email" asp-for="Email" />
+            </div>
+            <div class="m-1">
+                <label class="form-label">
+                    Advice
+                </label>
+                <textarea type="text" class="form-control" name="message" id="message" asp-for="Message" >
+
+                </textarea>
+            </div>
+            <div class="m-1">
+                <button class="btn btn-primary w-100" role="button" name="submit" id="submit" type="submit">Contact</button>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,11 @@
+﻿@if (TempData.ContainsKey("SuccessMessage")==true) {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+}
+else if(TempData.ContainsKey("ErrorMessage")==true)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
