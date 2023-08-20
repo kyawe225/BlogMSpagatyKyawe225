@@ -1,13 +1,12 @@
-﻿using System;
-using MBlogCore.Persistance.Context;
+﻿using MBlogCore.Persistance.Context;
 using MBlogCore.Persistance.Tables;
 using MBlogCore.Web.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 
 namespace MBlogCore.Web.Controllers
 {
-	public class ReviewController:ControllerBase
+	public class ReviewController:Controller
 	{
 		private MBlogContext context;
 		public ReviewController(MBlogContext context)
@@ -15,11 +14,22 @@ namespace MBlogCore.Web.Controllers
 			this.context = context;
 		}
 		[HttpGet]
-		public IActionResult Index()
+		public IActionResult Index(string Id)
 		{
-			return Ok("Hello World");
+			try
+			{
+                Guid BlogId = Guid.Parse(Id);
+                var reviews=context.reviews.AsNoTrackingWithIdentityResolution().Where(p=> p.BlogId.Equals(BlogId)).ToList();
+                return Ok(new {data= reviews});
+            }
+			catch(Exception e)
+			{
+				return BadRequest("something wrong");
+			}
+			
 		}
 		[HttpPost]
+		[ActionName("Create")]
 		public IActionResult Insert(ReviewViewModel model)
 		{
 			if (ModelState.IsValid)

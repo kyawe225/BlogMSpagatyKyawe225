@@ -1,0 +1,39 @@
+﻿@model UserCreateViewModel
+
+<form class=" p-2" method="post">
+    <div class="mb-2">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" role="textbox" />
+        <partial name="ErrorMessage" model='"Name"' />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" asp-for="Email" role="textbox" />
+        <partial name="ErrorMessage" model='"Email"' />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" asp-for="Password" role="textbox" />
+        <partial name="ErrorMessage" model='"Password"' />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Phone Number</label>
+        <input type="text" class="form-control" asp-for="PhoneNumber" role="textbox" />
+        <partial name="ErrorMessage" model='"ConfirmPassword"' />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Date Of Birth</label>
+        <input type="date" class="form-control" asp-for="DOB" role="textbox" />
+        <partial name="ErrorMessage" model='"DOB"' />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Address</label>
+        <textarea class="form-control" asp-for="Address" role="textbox" ></textarea>
+        <partial name="ErrorMessage" model='"Address"' />
+    </div>
+    <div class="">
+        <input type="submit" class="btn btn-primary w-100" value="Create" role="button" />
+    </div>
+</form>
+
+
