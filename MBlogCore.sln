@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBlogCore.Web", "MBlogCore.Web\MBlogCore.Web.csproj", "{69FE8918-F7AF-4454-9DFA-6C9799E446AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBlogCore.Persistance", "MBlogCore.Persistance\MBlogCore.Persistance.csproj", "{2BEDD68E-54E5-4421-995F-3A6FDF0A590E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69FE8918-F7AF-4454-9DFA-6C9799E446AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69FE8918-F7AF-4454-9DFA-6C9799E446AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69FE8918-F7AF-4454-9DFA-6C9799E446AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69FE8918-F7AF-4454-9DFA-6C9799E446AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BEDD68E-54E5-4421-995F-3A6FDF0A590E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BEDD68E-54E5-4421-995F-3A6FDF0A590E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BEDD68E-54E5-4421-995F-3A6FDF0A590E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BEDD68E-54E5-4421-995F-3A6FDF0A590E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2C773ED-4E3D-4C9E-8D20-1AB8B97B2D74}
+	EndGlobalSection
+EndGlobal

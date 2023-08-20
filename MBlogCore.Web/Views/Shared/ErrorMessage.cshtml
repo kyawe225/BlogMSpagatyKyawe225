@@ -1,0 +1,17 @@
+﻿@model string
+@if (TempData.ContainsKey("FieldErrors"))
+{
+    foreach (ModelErrorMessage i in TempData["FieldErrors"] as IEnumerable<ModelErrorMessage>)
+    {
+        if (i.fieldName == Model)
+        {
+            <small class="text-danger ">
+
+                @i.errorMessage
+
+            </small>
+        }
+
+    }
+
+}
