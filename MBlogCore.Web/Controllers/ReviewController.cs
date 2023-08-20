@@ -1,6 +1,7 @@
 ﻿using MBlogCore.Persistance.Context;
 using MBlogCore.Persistance.Tables;
 using MBlogCore.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,6 +31,7 @@ namespace MBlogCore.Web.Controllers
 		}
 		[HttpPost]
 		[ActionName("Create")]
+		[Authorize]
 		public IActionResult Insert(ReviewViewModel model)
 		{
 			if (ModelState.IsValid)

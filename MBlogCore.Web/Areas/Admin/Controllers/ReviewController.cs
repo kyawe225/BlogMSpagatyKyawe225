@@ -16,6 +16,7 @@ namespace MBlogCore.Web.Areas.Admin.Controllers
 			var reviews=context.reviews.AsNoTracking().ToList();
 			return View(reviews);
 		}
+		[HttpPost]
 		public IActionResult Delete(string Id)
 		{
 			var review=context.reviews.Where(p => p.Id == Guid.Parse(Id)).FirstOrDefault();

@@ -2,12 +2,14 @@
 using MBlogCore.Persistance.Context;
 using MBlogCore.Persistance.Tables;
 using MBlogCore.Web.Areas.Admin.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace MBlogCore.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class UserController : Controller
     {
         private MBlogContext context;

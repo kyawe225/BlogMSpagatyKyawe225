@@ -3,6 +3,7 @@ using MBlogCore.Persistance.Context;
 using MBlogCore.Persistance.Tables;
 using MBlogCore.Web.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace MBlogCore.Web.Controllers
 {
@@ -96,6 +97,7 @@ namespace MBlogCore.Web.Controllers
 
         [HttpPost]
         [ActionName("Logout")]
+        [Authorize]
         public IActionResult LogoutAction()
         {
             HttpContext.SignOutAsync();
