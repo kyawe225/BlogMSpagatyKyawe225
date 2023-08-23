@@ -1,5 +1,6 @@
-﻿using System;
+﻿
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 
 namespace MBlogCore.Web.Controllers
 {
@@ -10,6 +11,7 @@ namespace MBlogCore.Web.Controllers
 		}
 		public IActionResult Profile()
 		{
+			HttpContext.User.Identity.;
 			return null;
 		}
 		public IActionResult ProfileEdit()

@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MBlogCore.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MBlogCore.Web.Controllers;
 
@@ -12,7 +13,7 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-
+    [AllowAnonymous]
     public IActionResult Index()
     {
         return View();

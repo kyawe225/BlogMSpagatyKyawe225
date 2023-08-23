@@ -1,8 +1,28 @@
-﻿@model BlogCreateViewModel
-
-<form>
-    <div class="m-2">
-        <label class="form-label">Title</label>
-        <input type="text" role="textbox" asp-for="Title" />
-    </div>
-</form>
+﻿@model IEnumerable<BlogListViewModel>
+    <a asp-action="Create" asp-area="Admin" asp-controller="Blog" class="btn btn-primary">Create</a>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>IsHidden</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (BlogListViewModel i in Model)
+            {
+                <tr>
+                    <td>@i.Title</td>
+                    <td>@i.IsHidden</td>
+                    <td>
+                        <a asp-action="Update" asp-area="Admin" asp-controller="Blog" asp-route-id="@i.Id" class="btn btn-primary">Update</a>
+                        <form asp-action="Delete" asp-area="Admin" asp-controller="Blog" asp-route-id="@i.Id" method="post">
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

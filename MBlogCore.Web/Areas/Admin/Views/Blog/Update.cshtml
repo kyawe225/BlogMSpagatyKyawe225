@@ -1,0 +1,16 @@
+﻿@model BlogCreateViewModel
+
+<form asp-action="Create" asp-area="Admin" asp-controller="Blog" method="post">
+    <div class="m-2">
+        <label class="form-label">Title</label>
+        <input type="text" role="textbox" class="form-control" asp-for="Title" />
+    </div>
+    <div class="m-2">
+        <input type="checkbox" role="textbox" class="form-check-input" asp-for="IsHidden" />
+        <label class="form-check-label">Hidden</label>
+    </div>
+    <div class="m-2">
+        <input type="submit" class="btn btn-primary" value="Save"/>
+    </div>
+</form>
+

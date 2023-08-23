@@ -1,9 +1,13 @@
 ﻿using MBlogCore.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using MBlogCore.Web.Areas.Admin.Models;
+using Microsoft.AspNetCore.Authorization;
+
 namespace MBlogCore.Web.Areas.Admin.Controllers
 {
 	[Area("Admin")]
+	[Authorize(Roles ="Admin")]
 	public class ReviewController:Controller
 	{
 		private MBlogContext context;
@@ -11,9 +15,14 @@ namespace MBlogCore.Web.Areas.Admin.Controllers
 		{
 			this.context = context;
 		}
+		[HttpGet]
 		public IActionResult Index()
 		{
-			var reviews=context.reviews.AsNoTracking().ToList();
+			var reviews=context.reviews.AsNoTracking().Select(p=> new ReviewViewModel
+			{
+				Id=p.Id.ToString(),
+				Message=p.Message
+			}).ToList();
 			return View(reviews);
 		}
 		[HttpPost]

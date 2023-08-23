@@ -50,5 +50,6 @@
     <Folder Include="Areas\Admin\Views\Blog\" />
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Admin\Views\Review\" />
+    <Folder Include="Areas\Admin\Views\Review\" />
   </ItemGroup>
 </Project>

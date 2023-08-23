@@ -1,5 +1,4 @@
-﻿using System;
-using MBlogCore.Persistance.Context;
+﻿using MBlogCore.Persistance.Context;
 using MBlogCore.Persistance.Tables;
 using MBlogCore.Web.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -9,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace MBlogCore.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class UserController : Controller
     {
         private MBlogContext context;
@@ -23,7 +22,15 @@ namespace MBlogCore.Web.Areas.Admin.Controllers
         /// <returns>View</returns>
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<UserListViewModel> users = context.users.AsNoTracking().Select(p => new UserListViewModel
+            {
+                DOB = p.DOB,
+                Email = p.Email,
+                Name = p.Name,
+                PhoneNumber = p.PhoneNumber,
+                Id = p.Id.ToString()
+            }).ToList();
+            return View(users);
         }
         [HttpGet]
         public IActionResult Create()
@@ -99,7 +106,7 @@ namespace MBlogCore.Web.Areas.Admin.Controllers
                 }
             }
             TempData["SuccessMessage"] = "Update User Failed";
-            return View("Create", model);
+            return View("Update", model);
         }
         [HttpPost]
         [ActionName("Delete")]

@@ -1,1 +1,30 @@
-﻿
+﻿@model IEnumerable<ReviewViewModel>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Message
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ReviewViewModel i in Model as IEnumerable<ReviewViewModel>)
+            {
+                <tr>
+                    <td>@i.Message</td>
+                    <td>
+                        <a asp-action="Update" asp-area="Admin" asp-controller="Blog" asp-route-id="@i.Id" class="btn btn-primary">Update</a>
+                        <form asp-action="Delete" asp-area="Admin" asp-controller="Blog" asp-route-id="@i.Id" method="post">
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

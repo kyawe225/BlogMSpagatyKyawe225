@@ -3,10 +3,12 @@ using MBlogCore.Persistance.Context;
 using MBlogCore.Persistance.Tables;
 using MBlogCore.Web.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace MBlogCore.Web.Controllers
 {
+    [AllowAnonymous]
     public class AuthController : Controller
     {
         private readonly MBlogContext context;
@@ -30,7 +32,7 @@ namespace MBlogCore.Web.Controllers
 
         [HttpPost]
         [ActionName("Login")]
-        public IActionResult LoginAction(LoginModel model)
+        public async Task<IActionResult> LoginAction(LoginModel model)
         {
             if (ModelState.IsValid)
             {
@@ -44,12 +46,12 @@ namespace MBlogCore.Web.Controllers
                         {
                             new Claim(ClaimTypes.Name,user.Name),
                             new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
-                            new Claim(ClaimTypes.Role,"Admin Or User")
+                            new Claim(ClaimTypes.Role,"Admin")
                         };
-                        ClaimsIdentity identity = new ClaimsIdentity(claims);
+                        ClaimsIdentity identity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
                         ClaimsPrincipal principal = new ClaimsPrincipal(identity);
-                        this.HttpContext.SignInAsync(principal);
-                        TempData["ErrorMessage"] = "Login Successfully";
+                        await this.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                        TempData["SuccessMessage"] = "Login Successfully";
                         return RedirectToAction("Index", "Home");
                     }
                 }
@@ -95,7 +97,7 @@ namespace MBlogCore.Web.Controllers
             return View("Register", model);
         }
 
-        [HttpPost]
+        [HttpGet]
         [ActionName("Logout")]
         [Authorize]
         public IActionResult LogoutAction()

@@ -1,4 +1,5 @@
-﻿using MBlogCore.Persistance;
+﻿using System.Net;
+using MBlogCore.Persistance;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,15 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.Postgresql(builder.Configuration);
 
-builder.Services.AddAuthentication(p =>
-{
-    p.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    p.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-}).AddCookie(p =>
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(p =>
 {
     p.LoginPath = "/auth/login";
     p.LogoutPath = "/auth/logout";
-    p.ExpireTimeSpan = TimeSpan.FromHours(1);
+    p.Cookie.SameSite = SameSiteMode.Strict;
+    p.ExpireTimeSpan = new TimeSpan(11,0,0);
 });
 
 var app = builder.Build();

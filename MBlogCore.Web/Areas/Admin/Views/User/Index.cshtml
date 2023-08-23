@@ -1,1 +1,31 @@
-﻿<div> Index Works </div>
+﻿@model IEnumerable<UserListViewModel>
+<div> Index Works </div>
+<a asp-action="Create" asp-area="Admin" asp-controller="User" class="btn btn-primary">Create</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date Of Birth</th>
+            <th>PhoneNumber</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (UserListViewModel i in Model as IEnumerable<UserListViewModel>)
+        {
+            <tr>
+                <td>@i.Name</td>
+                <td>@i.Email</td>
+                <td>@i.DOB</td>
+                <td>@i.PhoneNumber</td>
+                <td>
+                    <a asp-action="Update" asp-area="Admin" asp-controller="User" asp-route-id="@i.Id" class="btn btn-primary">Update</a>
+                    <form asp-action="Delete" asp-area="Admin" asp-controller="User" asp-route-id="@i.Id"  method="post">
+                        <input type="submit" value="Delete" class="btn btn-danger"/>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

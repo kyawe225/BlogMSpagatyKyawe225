@@ -20,5 +20,13 @@ namespace MBlogCore.Web.Areas.Admin.Models
         public DateTime? DOB { set; get; }
         public bool IsActive { set; get; }
     }
+    public class UserListViewModel
+    {
+        public string Id { set; get; }
+        public string Name { set; get; }
+        public string Email { set; get; }
+        public string? PhoneNumber { set; get; }
+        public DateTime? DOB { set; get; }
+    }
 }
 
