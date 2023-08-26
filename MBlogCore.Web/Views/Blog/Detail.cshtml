@@ -1,7 +1,9 @@
-﻿<div class="container p-2">
-    <h1 class="h2 py-2 my-1">Why StarCraft So Good</h1>
+﻿@model BlogListViewModel 
+<div class="container p-2">
+    <h1 class="h2 py-2 my-1">@Model.Title</h1>
     <div class="mx-auto mb-3">
         <img src="./../../../../assets/imgs/starcraft - 1.png" class="img-fluid" alt="title img" />
+        <input type="hidden" value="@Model.Id" id="movie-key" />
     </div>
     <div class="m-2">
         @for (int i = 0; i < 10; i++)
@@ -32,4 +34,5 @@
             <div>Hello World</div>
         </div>
     </templdate>
+    <script src="~/js/review.js" defer ></script>
 </div>

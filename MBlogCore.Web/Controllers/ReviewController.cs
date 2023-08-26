@@ -15,6 +15,7 @@ namespace MBlogCore.Web.Controllers
 			this.context = context;
 		}
 		[HttpGet]
+		[ActionName("Index")]
 		public IActionResult Index(string Id)
 		{
 			try
