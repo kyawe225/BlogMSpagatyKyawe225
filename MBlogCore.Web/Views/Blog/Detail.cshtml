@@ -11,17 +11,25 @@
             </p>
         }
     </div>
-    <div class="p-2 m-1">
-        <div>
-            Review page make later
-        </div>
-        <div class="row g-2">
-            <div class="col-10">
-                <input type="text" class="form-control" />
+    @if (Context.User.Identity.IsAuthenticated)
+    {
+        <div class="p-2 m-1">
+            <div>
+                Review page make later
             </div>
-            <div class="col-2">
-                <button class="btn btn-primary w-100">Review</button>
+            <div class="row g-2">
+                <div class="col-10">
+                    <input type="text" class="form-control" id="review-mes" placeholder="write a review" />
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-primary w-100" id="confirm-but">Review</button>
+                </div>
             </div>
         </div>
-    </div>
+    }
+    <templdate>
+        <div class="m-2">
+            <div>Hello World</div>
+        </div>
+    </templdate>
 </div>
