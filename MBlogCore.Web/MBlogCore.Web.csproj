@@ -36,6 +36,7 @@
     <None Remove="Areas\Admin\Views\Blog\" />
     <None Remove="Areas\Admin\Views\User\" />
     <None Remove="Areas\Admin\Views\Review\" />
+    <None Remove="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Contact\" />
@@ -51,5 +52,6 @@
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Admin\Views\Review\" />
     <Folder Include="Areas\Admin\Views\Review\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
 </Project>

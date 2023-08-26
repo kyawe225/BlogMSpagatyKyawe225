@@ -1,0 +1,55 @@
+﻿@model UserDetailViewModel
+@if (!Model.IsActive)
+{
+    <div class="alert alert-danger">
+        Your account is not active
+    </div>
+}
+<div class="row justify-content-end">
+    <div class="d-inline" style="width:fit-content;">
+        <a asp-controller="User" asp-action="ProfileEdit"><button class="btn btn-primary d-inline">Edit</button></a>
+    </div>
+</div>
+<div class="m-2 border border-1 rounded-3">
+    <div class="p-2 my-2 border-bottom border-bottom-1">
+        <label class="w-100 m-1">
+            Name
+        </label>
+        <div class="px-2 py-1 mx-2">
+            @Model.Name
+        </div>
+    </div>
+    <div class="p-2 my-2 border-bottom border-bottom-1">
+        <label class="w-100 m-1">
+            Email
+        </label>
+        <div class="px-2 py-1 mx-2">
+            @Model.Email
+        </div>
+    </div>
+    <div class="p-2 my-1 border-bottom border-bottom-1">
+        <label class="w-100 m-1">
+            Date of Birth
+        </label>
+        <div class="px-2 py-1 mx-2">
+            @(Model.DOB==null? "-":Model.DOB?.ToLocalTime().ToShortDateString())
+        </div>
+    </div>
+    <div class="p-2 my-1  border-bottom  border-bottom-1">
+        <label class="w-100 m-1">
+            Phone Number
+        </label>
+        <div class="px-2 py-1 mx-2">
+             @(Model.PhoneNumber == null? "-" : Model.PhoneNumber)
+        </div>
+    </div>
+    <div class="p-2 my-1">
+        <label class="w-100 m-1">
+            Address
+        </label>
+        <div class="px-2 py-1 mx-2">
+            @(Model.Address==null ? "-": Model.Address)
+        </div>
+    </div>
+</div>
+
